@@ -1,0 +1,71 @@
+/* Waywaya, Jaesel S
+ * CC1-1B
+ * October 7, 2024
+ * Grocery Order System
+ */
+
+package Test;
+import java.util.Scanner;
+public class Grocery_Order_System {
+
+	public static void main(String[] args) {
+		Scanner newOBJ = new Scanner(System.in);
+		
+		
+		//Variables for our code
+		int orderNum, amountNum;
+		double amount = 0.00;
+		
+		
+		
+		//Menu Display
+		System.out.println("______________________________________________");
+		System.out.println("\t\tXIAXIO MENU\t\t\t\t");
+		System.out.println("______________________________________________");
+		System.out.println("1.Burger    \t-   PHP 100.00");
+		System.out.println("2.Fries     \t-   PHP  50.00");
+		System.out.println("3.Soda      \t-   PHP  30.00");
+		System.out.println("4.Ice Cream \t-   PHP  45.00");
+		System.out.println("5.Exit ");
+		System.out.println("______________________________________________");
+
+		
+		//User exit input or the number 5
+		for (;;) {
+			System.out.println("\nKindly enter your desired menu number");
+			orderNum = newOBJ.nextInt();
+			if (orderNum > 4) {
+				System.out.println("Exiting the menu");
+		
+		}
+			//Continue to this program if the user inputs 1-4 
+			else {
+				System.out.print("Enter the amount of the items: ");
+			       amount = newOBJ.nextInt();
+			}
+			
+		switch (orderNum) {
+			case 1: 
+				amount = 100 * amount;
+				System.out.println("You have ordered Burger. ");
+					break;
+			case 2:
+				amount = 50 * amount;
+				System.out.println("You have ordered Fries");
+					break;
+			case 3:
+				amount = 30 * amount;
+				System.out.println("You have ordered Sode");
+					break;
+			case 4:
+				amount = 45 * amount;
+				System.out.println("You have ordered Ice Cream");
+					break;
+			}
+		
+		System.out.println("______________________________________________");
+		System.out.println("Total amount; PHP " + amount + "0");
+		System.out.println("______________________________________________");
+		}
+}
+}
