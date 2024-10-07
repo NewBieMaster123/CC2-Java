@@ -1,0 +1,47 @@
+package Test;
+import java.util.Scanner;
+
+
+//Waywaya, Jaesel S.
+//CC2-1B
+//October 9, 2024
+//Grocery Store Discount
+
+public class Grocery_Store_Discount {
+
+	public static void main(String[] args) {
+		Scanner newOBJ = new Scanner(System.in);
+		
+		
+		//Declaration of variables
+		double purchase,tSum,purDiscount = 0;
+		
+		
+		//Asking the user to input the total sum of the purchase
+		System.out.println("Please enter your total purchase: PHP");
+		purchase = newOBJ.nextDouble();
+		
+		
+		//Determining the discount of the users total purchase
+		if(purchase < 1000) {
+			purDiscount = 0;
+			
+	   }else if(purchase >= 1001 && purchase <= 5000 ) {
+		   purDiscount = 0.05;
+		   
+	   }else if(purchase >= 5001 && purchase <= 10000) {
+		   purDiscount = 0.10;
+		   
+	   }else if(purchase > 10000) {
+		   purDiscount = 0.15;
+	   }
+		
+		
+		//Now calculating the amount of discount of the users total purchase
+		tSum = purchase - (purchase * purDiscount);
+		
+		//Displaying the overall purchases
+		System.out.println("The discount applied on your purchase is " + purDiscount * 100 +"%");
+		System.out.println("The final sum of your purchase with the discount on is; PHP " + tSum);
+}
+}
