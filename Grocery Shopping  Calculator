@@ -1,0 +1,57 @@
+//Waywaya, Jaesel William Raye Van Orick S.
+
+//September 23, 2024
+//Grocery Shopping  Calculator
+//CC2-1B-B
+
+
+package Test;
+import java.util.Scanner;
+public class Testt {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner newObj = new Scanner(System.in);
+		String  inputUser = "";
+		
+		
+		
+		//Variables
+		int sNum1, sNum2, sNum3, vNum1, vNum2, vNum3;
+		
+		
+		//Asking for the variables of the user
+		//1st Item
+		System.out.print("Please enter the price of your item;\t " );
+		sNum1 = newObj.nextInt();
+		System.out.print("Please enter the quantity of your:\t ");
+		vNum1 = newObj.nextInt();
+		
+		//2nd Item
+		System.out.print("Please enter the price of your item;\t " );
+		sNum2 = newObj.nextInt();
+		System.out.print("Please enter the quantity of your:\t ");
+		vNum2 = newObj.nextInt();
+		
+		//3rd Item
+		System.out.print("Please enter the price of your item;\t " );
+		sNum3 = newObj.nextInt();
+		System.out.print("Please enter the quantity of your:\t ");
+		vNum3 = newObj.nextInt();
+		
+	
+		//Declaring our variables	
+		float sTotal = (sNum1 * vNum1) + (sNum2 * vNum2) + (sNum3 * vNum3);
+		float dis = 0.05f * sTotal;
+		float tax = 0.12f * (sTotal - dis);
+		float subTotal = sTotal - dis;
+		float fTotal = subTotal + tax;
+		
+		//Final Output
+		System.out.println("Ssum;\t\tPHP " + sTotal +"0");
+		System.out.println("Dicount;\tPHP  " + dis +"0" );
+		System.out.println("Tax:\t\tPHP  " + tax +"0" );
+		System.out.println("Final Sum:\tPHP " + fTotal +"0" );
+		
+}
+}
