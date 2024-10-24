@@ -1,0 +1,54 @@
+/* 
+ * Waywaya, Jaesel William Raye Van Orick S.
+ * CC2-1B
+ * Attendance System
+*/
+package Test;
+import java.util.Scanner;
+public class AttendanceSystem {
+
+	public static void main(String[] args) {
+		
+		
+		//declaration of scanner and variables to be used for the loop
+		Scanner userInput = new Scanner(System.in);
+		int count, tAmount, tPresent, tAbsent;
+		String Present;
+		
+		//asks the user to enter/input the amount of students
+		System.out.print("Please enter the number of students: ");
+		tAmount = userInput.nextInt();
+		
+		//methods for the loop
+		count = 1;
+		tPresent = 0;
+		tAbsent = 0;
+		
+		//Starting point of the loop until it equals to the number of the given number
+		while(count <= tAmount) {
+			
+			//It asks the user if the student is present or not
+			System.out.print("Is student " + count +  " present? (Y/N): ");
+			Present = userInput.next();
+			
+			//This part decides on what the user inputs on how many present and absent tally
+			if(Present.equals("y")) {
+				tPresent++;
+	
+			}else if(Present.equals("n")) {
+				tAbsent++;
+			}
+			
+			//After the conditions are met, the count is added
+			count++;
+			
+			//If the count is over the total amount, this displays the total number of absents and presents
+			if (count > tAmount) {
+				System.out.print("The total presents are: " + tPresent +"\n");
+				System.out.print("The total absents are: " + tAbsent);
+					break;
+			}
+		}
+	}
+
+}
