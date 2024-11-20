@@ -1,0 +1,73 @@
+
+/*
+ Waywaya, Jaesel S
+ CC2 - 1B
+ 11/20/24
+ Retail Store Inventory Management 
+*/
+package Test;
+import java.util.Scanner;
+public class Test {
+
+	public static void main(String[] args) {
+		
+		// lets create a scanner for storing inputs
+		Scanner inputUser = new Scanner(System.in);
+		
+		
+		//declaration of arrays
+		
+		int [] price = {320, 290, 100, 79, 55, 180, 90, 85, 35, 25};
+		int [] quantity = {10, 9, 7, 8, 3, 1, 2, 9, 3, 4};
+		
+		//lets create a loop through our array to calculate the value and displays our output
+		for (int ctr = 0; ctr < 10; ctr++) { //ctr will be labelled as our counter for now confusions
+			int totalV = price[ctr] * quantity[ctr];
+			System.out.println("Stock [" + (ctr+1) + "]: " + quantity[ctr] + " " + price[ctr]);
+            System.out.println("Total Value[" + (ctr+1) + "]:" + totalV + "\n");
+		}
+		
+		
+		
+		//Now lets create another version of this code 
+		//2nd version: User inputs
+		
+		/*
+		 
+		 //lets declare our tool for us to use
+		 Scanner userInput = new Scanner(System.in);
+		 
+		 //Declaration of our arrays
+		 int[] price = new int[10];
+		 int[] quantity = new in[10];
+		 
+		 //Now lets create a loop for storing the stock, quantity and cost
+		  
+		 for(int ctr = 0; ctr < 10; ctr++){ //our variables for this block
+		 
+		 	//After we're done with declaration lets create our code that will input what our user have entered 
+		 	System.out.println(""Enter the Stock Price [" + (ctr+1) + "]: ");
+		 	price[ctr] = userInput.nextInt(); 
+		 	
+		 	System.out.println("Enter the Stock Quantity [" + (ctr+1) + "]: )
+		 	quantity[ctr] = userInput.nextInt
+		 }
+		 
+		 // after creating our display for the inputs lets create our loop through array to calculate our total value and displays our inputs
+		  
+		  	for(int ctr = 0; ctr < 10; ctr++){
+		  		int totalValue = price[ctr] * quantity[ctr];
+		            System.out.println("Total Value[" + (ctr+1) + "]: " + totalValue);
+		 	
+		 
+		 
+		 		}	
+			}
+		} 
+	}	 
+}		 
+		 
+		 End of our 2nd version*/ 
+	}
+
+}
