@@ -1,0 +1,83 @@
+/*
+ 	Waywaya, Jaeasel William Raye Van Orick S.
+  	Final Challenge #2: Weather Data Tracker (2D Array)
+  	CC2-1B	
+  	November 22, 2024
+*/
+
+// lets import our scanner
+package Test;
+import java.util.Scanner;
+
+public class Weather_Data_Tracker {
+	public static void main(String [] args) {
+		//lets declare our scanner 
+		Scanner userInput = new Scanner(System.in);
+		
+		//lets make/create/initialize our array
+		int [][] cityClimate = new int [3][7];
+		
+		//Now lets declare our variables for our sum and for the highest temperatures
+		int sum = 0;
+		int temp = 0;
+		int tempHigh = 0;
+		//This point of the code, it stores the input of the user into array
+		//A code for the current city temperature 
+		for(int cityCount = 0 ; cityCount < 3;) {
+			
+			//another loop for storing loop into array
+			for(int count = 0; count < 7; count++) {
+				
+				//Now we'll be creating a loop for storing the temperature into an array
+				System.out.println("Kindly enter daily temperature of the day " + (count+1) + " for city " + (cityCount+1) + " :");
+				cityClimate[cityCount][count] = userInput.nextInt();
+				
+				//on this part of the code will create a checker that will check if our capacity have reached its maximum capacity
+				if(count == 6) {
+					
+					// this one checks if its true then it adds to the city counter and restarts to another loop but on another city
+					cityCount++;
+					
+				}
+				
+			}
+		}
+		
+		//On this new part of the code that we will create is the one that will calculate both the average and the highest temperature 
+		//now the loop for the city array
+		for(int cityCount = 0; cityCount < 3;) {
+			
+			//now we will create a loop through the temperature array to calculate the average and checks the highest temperature
+			for(int count = 0; count <7; count++) {
+				
+				//now for each loop adds the current stored array into the sum and vice versa
+				sum = sum + cityClimate[cityCount][count];
+			
+			
+			
+			//now lets create another checker if the array have reached the maximum capacity
+			if(count == 6) {
+				//calculates the averagh
+                int avg = sum / 7;
+                 
+                //prints out the output immediately per current city
+                System.out.println("Average temperature of City " + (cityCount+1) + ": " + avg);
+                System.out.println("Highest Temperature Recorded of City " + (cityCount+1) + ": " + tempHigh);
+                
+                //resets the sum and highest temperature back to 0
+                sum = 0;
+                tempHigh = 0;
+                
+                //adds the city counter and loops back to another city
+                cityCount++;
+			}
+			
+			
+			
+		}
+		
+		
+		
+		}
+	}
+}
