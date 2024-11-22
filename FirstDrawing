@@ -1,0 +1,35 @@
+
+import java.awt.*;
+import javax.swing.*;
+
+
+
+public class Drawing extends Canvas {
+    public void paint(Graphics j){
+        j.setColor(Color.GREEN); //Set color
+        j.drawRect(50,50,150,100);  //rectangle (x,y,width,length)
+        j.setColor(Color.BLUE);
+        j.fillRect(250,50,150,100);
+        
+        Color rgb = new Color(255,0,0);
+        j.setColor(rgb);
+        j.drawOval(450,50,100,100);
+        j.fillOval(600,50,100,100);
+        
+        j.setColor(Color.BLACK);
+        j.drawLine(50,200,700,200);
+        
+        j.setColor(Color.BLACK);
+        j.drawLine(700,50,50,50);
+        
+        
+    }
+    public static void main(String[]args){
+        JFrame f = new JFrame("Jaesel's First Drawing");
+        Drawing canvas = new Drawing();
+        f.setSize(500,500);
+        f.add(canvas);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setVisible(true);            
+    }
+}
