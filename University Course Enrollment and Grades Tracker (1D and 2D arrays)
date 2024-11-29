@@ -1,0 +1,104 @@
+/*
+ Waywaya,Jaesel William Raye Van Orick S.
+ Nov 28, 2024
+ CC2-1B
+ University Course Enrollment and Grades Tracker (1D and 2D arrays)
+ */
+package Test;
+
+// lets import the tool we going to use
+import java.util.Scanner;
+
+public class Student_Grade_Array {
+	public static void main(String [] args) {
+		
+		/*
+		 //This code is the pre-defined one
+		   
+		  
+		  	//lets declare our scanner
+		Scanner inputUser = new Scanner(System.in);
+		
+		//lets initialize our variables
+		String[] students = {"Jasmime", "Jack", "Pepito", "Robert", "Manalo"};
+		int [][] grades = {
+				{84, 89, 83},
+				{89, 88, 86},
+				{90, 89, 93},
+				{93, 89, 91},
+				{95, 91, 93},
+				{89, 87, 84},
+		};
+		
+		//lets create a variable for calculating the sum
+		int sum = 0;
+		
+		//Now lets create a loop for adding the sum, average of their grades of each students
+		for (int column = 0; 0 < 5; column++) {
+			for (int row = 0; row < 3; row++) {
+				
+				//Now lets create a variable that adds the array to the sum
+				sum = sum + grades[column][row];
+				
+				//now lets create code that if it hits the limit, it'll print the name of the student and their grades
+				if (row == 2) {
+					
+					//this part calculates and prints the students name and their average
+					double studentAv = (double) sum / 3;
+					System.out.println("Student " + students[column] + "'s Average: " + String.format( "%.1f", studentAv)); //the (%.1f) its for decimal numbers used in floating point numbers
+					
+					//This code resets the loop and the sum till it reaches the last student
+					sum = 0;
+				}
+			}
+		}
+		*/
+		//This now code is the user input 
+		
+	
+		//lets declare our variables for our array
+		String[] student = new String[5];
+		int [][] grades = new int [5][3];
+		
+		//lets declare our scanner
+		Scanner inputUser = new Scanner(System.in);
+		
+		//lets create a variable for calculating the sum
+		int sum = 0;
+		
+		for(int column = 0; column < 5; column++) {
+			
+			//this part asks the user for the students name and stores it
+			System.out.println("Kindly enter the student's name: ");
+			student[column] = inputUser.next(); 
+			
+			for(int row = 0; row < 3; row++) {
+				
+				//this parts asks the user to input the grades of the student for each 3 subjects
+				System.out.println("Kindly enter the grade of the student for each 3 subject: ");
+				grades[column][row] = inputUser.nextInt();
+			}
+		}
+		
+		//this parts is the loop for calculating for the average for each student
+		for(int column = 0; column < 5; column++) {
+			for(int row = 0; row < 3; row++) {
+			
+			//this one adds the array to the sum
+			sum = sum + grades[column][row];
+			
+			//this part checks if the limit is reached, the prints the students name and average
+			if(row == 2) {
+				
+				//calculates and prints the students name and average grade
+				double average = (double) sum / 3;
+				System.out.println("Student " + student[column] + "''s Average: " + String.format(" %.1f", average)); //this String format is for decimal numbers in floating point numbers
+				
+				
+				//this part resets the sum till it reaches the maximum limit of the students
+				sum = 0;
+			}
+		}
+	}
+}
+}
