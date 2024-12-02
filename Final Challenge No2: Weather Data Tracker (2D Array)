@@ -1,81 +1,80 @@
-/*
+	/*
  	Waywaya, Jaeasel William Raye Van Orick S.
   	Final Challenge #2: Weather Data Tracker (2D Array)
   	CC2-1B	
   	November 22, 2024
 */
 
-// lets import our scanner
-package Test;
-import java.util.Scanner;
 
-public class Weather_Data_Tracker {
+package Test;
+
+//lets import our scanner
+import java.util.Scanner;
+public class Weather_Data {
 	public static void main(String [] args) {
+		
 		//lets declare our scanner 
 		Scanner userInput = new Scanner(System.in);
 		
-		//lets make/create/initialize our array
-		int [][] cityClimate = new int [3][7];
+		//now lets declare the variables for the city and day
+		int cities = 3;
+		int days = 7;
 		
-		//Now lets declare our variables for our sum and for the highest temperatures
-		int sum = 0;
-		int temp = 0;
-		int tempHigh = 0;
-		//This point of the code, it stores the input of the user into array
-		//A code for the current city temperature 
-		for(int cityCount = 0 ; cityCount < 3;) {
+		//now lets create a loop that will store the temperature of the 3 cities and 7 days
+		int [] temperatures = new int[cities * days];
+		
+		//Now lets create a code that will ask the user to input the temperature for each city over the 7 days
+		for(int i = 0; i < cities; i++) {
+			System.out.println("Please enter the temperature for City " + (i + 1) + ":"); // this will act as City 1
 			
-			//another loop for storing loop into array
-			for(int count = 0; count < 7; count++) {
+			//this part will now be the days 
+			for (int d = 0; d < days; d++) {
+				System.out.println("Day " + (d + 1) + ": ");
 				
-				//Now we'll be creating a loop for storing the temperature into an array
-				System.out.println("Kindly enter daily temperature of the day " + (count+1) + " for city " + (cityCount+1) + " :");
-				cityClimate[cityCount][count] = userInput.nextInt();
+				//now this part checks if the user put a valid integer
+				if(userInput.hasNextInt()) {   //returns a boolean value:true if the next token in the input can be interpreted as an integer, and	false if the next token is not an integer (e.g., if it's a string or a floating-point number).
+				   int temp = userInput.nextInt(); // Read temperature as integer
+				   temperatures[i * days + d] = temp; //stores temperature in an array
+							
+				//checks if theres an invalid interger and asks for the user to input a valid integer
+			        }else {
+			    	System.out.println("Invalid input. Kindly enter a valid integer for Day " + (d + 1) + " of City " + (i + 1));
+			    	userInput.next(); //consumes the invalid input
+			    	d--; //Decreases the day to be on the same day as the invalid integer to be corrected 
+			    }
+		}	
+	}
+		
+		
+		
+		//this part of the code calculate the avg and the highest temperature for each city
+		for(int i = 0; i < cities; i++) {
+			int sum = 0;
+			int highest = temperatures[i * days]; // starts with the first days temperature of the city	
+					
+					
+			for(int d = 0; d < days; d++) {
+				int temp = temperatures[i * days + d]; 
+				sum += temp;
 				
-				//on this part of the code will create a checker that will check if our capacity have reached its maximum capacity
-				if(count == 6) {
-					
-					// this one checks if its true then it adds to the city counter and restarts to another loop but on another city
-					cityCount++;
-					
+				if(temp > highest) {
+					highest = temp;
 				}
-				
-			}
-		}
-		
-		//On this new part of the code that we will create is the one that will calculate both the average and the highest temperature 
-		//now the loop for the city array
-		for(int cityCount = 0; cityCount < 3;) {
-			
-			//now we will create a loop through the temperature array to calculate the average and checks the highest temperature
-			for(int count = 0; count <7; count++) {
-				
-				//now for each loop adds the current stored array into the sum and vice versa
-				sum = sum + cityClimate[cityCount][count];
-			
-			
-			
-			//now lets create another checker if the array have reached the maximum capacity
-			if(count == 6) {
-				//calculates the averagh
-                int avg = sum / 7;
-                 
-                //prints out the output immediately per current city
-                System.out.println("Average temperature of City " + (cityCount+1) + ": " + avg);
-                System.out.println("Highest Temperature Recorded of City " + (cityCount+1) + ": " + tempHigh);
-                
-                //resets the sum and highest temperature back to 0
-                sum = 0;
-                tempHigh = 0;
-                
-                //adds the city counter and loops back to another city
-                cityCount++;
 			}
 			
-			
-			
+		//this part calculates the average of temperature of each city
+		double average = sum / (double) days;	
+		
+		//this part prints the final output of the code (avg and the highest temps)
+		System.out.printf("City %d - Average temperature: %.2f\n", i + 1, average); //%d is a format specifier used in string formatting
+		 System.out.println("City " + (i + 1) + " - Highest temperature: " + highest);
 		}
 		
+		// Close the scanner
+        userInput.close();
+}
+}
+
 		
 		
 		}
