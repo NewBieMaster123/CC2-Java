@@ -1,0 +1,58 @@
+/*
+  Waywaya, Jaeasel William Raye Van Orick S.
+  	Final Challenge #1: Retail Store Inventory Management (1D array)
+  	CC2-1B	
+  	November 22, 2024
+ 
+ 
+*/
+
+package Test;
+
+
+import java.util.Scanner;
+public class Test2 {
+	public static void main(String [] args) {
+		
+		//declare our scanner 
+		Scanner inputUser = new Scanner(System.in);
+		
+		
+		//declare our variables for our array
+		int[] stockLevel = new int[10];
+		double[] prices = new double[10];
+		
+		
+		//lets create an array to store the users input 
+		System.out.println("Kindly put the Stocklevels of your 10 product: ");
+		for(int count = 0; count < 10; count++) {
+			
+			//now lets create a code that asks the user to input the Stocklevel
+			System.out.println("Stock level for product " + (count + 1) + ": ");
+			stockLevel[count] = inputUser.nextInt();
+		}
+		
+		//this prompts the user to enter the prices of the stock level
+			System.out.println("Kindly enter the prices for each 10 stock: ");
+			for(int count = 0; count <10; count++) {
+				
+				//this enters the prices of each stock till it hit the maximum limit
+				System.out.println("Stock price for product " + (count + 1) + ": ");
+				prices[count] = inputUser.nextDouble();
+			}
+			
+		
+		// now lets create a code that will calculate the total value of all items
+		double totalValue = 0;
+		for(int i = 0; i < 10; i++) {
+			
+			//this line calculates the overall inputs
+			totalValue += stockLevel[i] * prices[i];
+		}
+		
+		//now lets create a code that shows and displays the overall total value
+		System.out.printf("\nThe total value of each items in the stock is: $%.2f\n", totalValue);
+		
+		
+	}
+}
