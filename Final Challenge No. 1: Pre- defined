@@ -1,0 +1,35 @@
+/*
+  Waywaya, Jaeasel William Raye Van Orick S.
+  	Final Challenge #1: Retail Store Inventory Management (1D array)
+  	CC2-1B	
+  	November 22, 2024
+ 	Pre - defined
+ 
+*/
+package Test;
+
+import java.util.Scanner;
+
+public class newText {
+public static void main(String[] args) {
+		
+		// lets create a scanner for storing inputs
+		Scanner inputUser = new Scanner(System.in);
+		
+		
+		//declaration of arrays
+		double [] price = {320, 290, 100, 79, 55, 180, 90, 85, 35, 25};
+		int [] quantity = {10, 9, 7, 8, 3, 1, 2, 9, 3, 4};
+		
+		//lets create a loop through our array to calculate the value and displays our output
+		for (int i = 0; i < 10; i++) { //[i] will be labelled as our counter for no confusions
+			double totalV = price[i] * quantity[i];
+			
+			//Now lets display our final out put
+			System.out.println("Stock [" + (i + 1) + "]: " + quantity[i] + " ~ $" + String.format("%.2f", price[i]));
+			System.out.println("Total Value[" + (i + 1) + "]: $" + String.format("%.2f", totalV) + "\n");
+
+		}
+		
+}
+}
