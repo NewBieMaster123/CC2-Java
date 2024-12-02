@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Student_Grade_Array {
 	public static void main(String [] args) {
 		
-		/*
+		
 		 //This code is the pre-defined one
 		   
 		  
@@ -52,7 +52,9 @@ public class Student_Grade_Array {
 				}
 			}
 		}
-		*/
+	}
+}
+		/*
 		//This now code is the user input 
 		
 	
@@ -102,3 +104,4 @@ public class Student_Grade_Array {
 	}
 }
 }
+	*/
