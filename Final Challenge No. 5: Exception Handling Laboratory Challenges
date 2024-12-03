@@ -1,0 +1,124 @@
+/*
+  Waywaya, Jaeasel William Raye Van Orick S.
+  	Final Challenge #1: Retail Store Inventory Management (1D array)
+  	CC2-1B	
+  	November 22, 2024
+ 	User Input
+ 
+*/
+package Test;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+//Custom exception classes 
+
+//Exception for insufficient funds in the banking system
+class InsufficientFundsException extends Exception{
+	public InsufficientFundsException (String errorMessage) {
+		super(errorMessage);	
+	}
+}
+
+//Exception for Invalid quantity in the Shopping Cart system
+class InvalidQuantityException extends Exception{
+	public InvalidQuantityException (String errorMessage) {
+		super(errorMessage);
+	}
+}
+
+public class CombinedSystem {
+	static void checkWithdrawal(double withdraw, double account) throws InsufficientFundsException{
+		
+		if(withdraw > account) {
+			throw new InsufficientFundsException("Error! Amount exceeded");
+		}
+	}
+	
+	
+	//Method to check if the quantity entered for the shopping cart is valid
+	static void checkQuantity(int quantity, int availableQuantity) throws InvalidQuantityException{
+		
+		//checks if the quantity is less than or equal to 0 or greater than the available items, throw an exception
+		if (quantity <= 0 || quantity > availableQuantity) {
+			throw new InvalidQuantityException("Error! Invalid Quantity");  
+		}
+	}
+	
+
+	
+	public static void main(String [] args) {
+		// Create a scanner object to capture user input
+        Scanner inputUser = new Scanner(System.in);
+        
+        //lets initialize our variables for the banking system
+        double accountBalance = 100000; //our starting account balance
+        double withdrawAmount; //our variable to store withdrawal amount entered by user
+        
+        //now lets also initialize our variables for our shopping cart system
+        int availableItems = 5;
+        int cartQuantity = 0;
+        
+        
+        //our code process for bank system
+        try {
+        	//this displays the current amount of the user
+        	System.out.printf("Your account balance is: $%.2f\n", accountBalance);
+        	
+        	//Asks the user to enter the withdraw amount
+        	System.out.print("Kindly enter the withdraw amount: ");
+        	withdrawAmount = inputUser.nextDouble(); // Capture the withdrawal amount from user
+        	
+        	// Call the checkWithdrawal method to validate the withdrawal amount
+            checkWithdrawal(withdrawAmount, accountBalance);
+            
+            //if the withdrawal is valid, this will update the account balance
+            accountBalance -= withdrawAmount;
+            
+            //
+            System.out.printf("Withdraw successfuL! New balance: $%.2f\n", accountBalance);
+                
+        }catch (InsufficientFundsException e) {
+        	// Catch and display the error message if withdrawal amount exceeds balance
+            System.out.println(e.getMessage());
+            
+        }catch (InputMismatchException e) {
+        	
+        	 // Catch invalid input errors (e.g., if the user enters non-numeric input)
+            System.out.println("Error! Invalid input. Please enter a valid number.");
+            inputUser.next();  // Clear the invalid input to prevent it from causing further errors
+        }
+
+        // Shopping Cart Process
+        try {
+            // Display product information to the user with price formatting
+            System.out.println("\nAvailable items: Red Magic 9s Pro - $71,3572 ");
+            System.out.println("Quantity available: " + availableItems); // Show the number of items in stock
+            
+            // Ask the user how many items they want to add to the cart
+            System.out.print("Enter quantity to add to cart: ");
+            cartQuantity = inputUser.nextInt(); // Capture the quantity entered by user
+
+            // Call the checkQuantity method to validate the quantity
+            checkQuantity(cartQuantity, availableItems);
+            
+            // If quantity is valid, update the available items and confirm addition to the cart
+            availableItems -= cartQuantity; // Subtract the quantity added to the cart from available items
+            System.out.println("Successfully added " + cartQuantity + " item(s) to your cart.");
+        } catch (InvalidQuantityException e) {
+            // Catch and display the error message if the quantity is invalid
+            System.out.println(e.getMessage());
+            cartQuantity = 0; // Reset the cart quantity to 0 if invalid
+        } catch (InputMismatchException e) {
+            // Catch invalid input errors (e.g., if the user enters non-numeric input)
+            System.out.println("Error! Invalid input. Please enter a valid number.");
+            inputUser.next();  // Clear the invalid input to prevent it from causing further errors
+        }
+
+        // Final display of the cart status
+        System.out.println("\nCart: " + cartQuantity + " item(s) added.");
+        System.out.println("Thank you for shopping!"); // Thank the user for shopping
+
+        // Close the scanner to avoid resource leaks
+        inputUser.close();
+    }
+}
